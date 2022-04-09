@@ -1,12 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseSystem : MonoBehaviour
 {
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject nextLevelButton;
+    private void Awake()
+    {
+        CheckNextLevel();
+    }
     public void GamePause()
     {
         Time.timeScale = 0.0f;
@@ -28,5 +31,17 @@ public class PauseSystem : MonoBehaviour
         pauseMenu.SetActive(false);
         pauseButton.SetActive(true);
         Time.timeScale = 1.0f;
+    }
+    public void NextLevel()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1));
+    }
+    private void CheckNextLevel()
+    {
+        if (SceneManager.sceneCountInBuildSettings == (SceneManager.GetActiveScene().buildIndex + 1))
+        {
+            nextLevelButton.SetActive(false);
+        }
     }
 }

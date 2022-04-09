@@ -1,27 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class LetScript : MonoBehaviour
+namespace WildBall.TrapAndLet
 {
-    private Animator animator;
-    [SerializeField] private int currentState = 0;
-
-    private void Awake()
+    public class LetScript : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-    }
+        private Animator animator;
+        [SerializeField] private int currentState = 0;
 
-    public void EndAnimationEvent()
-    {
-        int _state = Random.Range(0, 3);
-        if (_state == currentState)
-            return;
-        else
+        private void Awake()
         {
-            animator.SetInteger("State", _state);
-            currentState = _state;
+            animator = GetComponent<Animator>();
         }
 
+        public void EndAnimationEvent()
+        {
+            int _state = Random.Range(0, 3);
+            if (_state == currentState)
+                return;
+            else
+            {
+                animator.SetInteger(Inputs.GlobalStringVars.LET_STATE_PARAMETER, _state);
+                currentState = _state;
+            }
+
+        }
     }
 }
+
