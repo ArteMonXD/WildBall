@@ -67,9 +67,11 @@
     <Compile Include="Assets\Scripts\ActivatePrompt.cs" />
     <Compile Include="Assets\Scripts\ActivateTrigger.cs" />
     <Compile Include="Assets\Scripts\ArrowsPromt.cs" />
+    <Compile Include="Assets\Scripts\BuffTrigger.cs" />
     <Compile Include="Assets\Scripts\CoinController.cs" />
     <Compile Include="Assets\Scripts\CollisionTrap.cs" />
     <Compile Include="Assets\Scripts\CoroutinesSample.cs" />
+    <Compile Include="Assets\Scripts\DeathEffect.cs" />
     <Compile Include="Assets\Scripts\DeathRoom.cs" />
     <Compile Include="Assets\Scripts\DetourTimeDesroyed.cs" />
     <Compile Include="Assets\Scripts\DiactivateObjectViaCollision.cs" />
@@ -78,10 +80,12 @@
     <Compile Include="Assets\Scripts\GameOverTrigger.cs" />
     <Compile Include="Assets\Scripts\GlobalStringVars.cs" />
     <Compile Include="Assets\Scripts\LetScript.cs" />
+    <Compile Include="Assets\Scripts\MovingParticleFollow.cs" />
     <Compile Include="Assets\Scripts\ObjectInteractionTrigger.cs" />
     <Compile Include="Assets\Scripts\PauseSystem.cs" />
     <Compile Include="Assets\Scripts\PlatformWithTrap.cs" />
     <Compile Include="Assets\Scripts\PlatformWithTrapActivateTrigger.cs" />
+    <Compile Include="Assets\Scripts\PlayerEffects.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SelectLevelButton.cs" />
@@ -646,6 +650,15 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>D:/Projects/GithubProjects/HomeWork11/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>D:/Projects/GithubProjects/HomeWork11/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>D:/Projects/GithubProjects/HomeWork11/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>D:/Projects/GithubProjects/HomeWork11/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Projects/GithubProjects/HomeWork11/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -660,6 +673,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/Projects/GithubProjects/HomeWork11/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>D:/Projects/GithubProjects/HomeWork11/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Projects/GithubProjects/HomeWork11/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
