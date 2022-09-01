@@ -27,6 +27,9 @@ namespace WildBall.Inputs
         public enum PromtArrows {Left, Top, Right, Buttom, None };
         #endregion
 
+        #region States
+        public static string[] STATES = { "Back", "Left", "Front", "Right" };
+        #endregion
         public static float ReductionOfRanges(float value, float fromMin, float fromMax, float toMin, float toMax)
         {
             return (value - fromMin) / (fromMax - fromMin) * (toMax - toMin) + toMin;

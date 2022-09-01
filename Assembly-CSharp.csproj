@@ -63,12 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
     <Compile Include="Assets\Scripts\ActivateObjectViaCollision.cs" />
     <Compile Include="Assets\Scripts\ActivatePrompt.cs" />
     <Compile Include="Assets\Scripts\ActivateTrigger.cs" />
     <Compile Include="Assets\Scripts\ArrowsPromt.cs" />
     <Compile Include="Assets\Scripts\BuffTrigger.cs" />
     <Compile Include="Assets\Scripts\CoinController.cs" />
+    <Compile Include="Assets\Scripts\CollisionControllPlane.cs" />
     <Compile Include="Assets\Scripts\CollisionTrap.cs" />
     <Compile Include="Assets\Scripts\CoroutinesSample.cs" />
     <Compile Include="Assets\Scripts\DeathEffect.cs" />
@@ -89,6 +94,7 @@
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SelectLevelButton.cs" />
+    <Compile Include="Assets\Scripts\SwitchStateCameraTrigger.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
