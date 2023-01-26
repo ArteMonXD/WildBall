@@ -11,6 +11,7 @@ namespace WildBall.Triggers
         [SerializeField] private bool rotate;
         [SerializeField] private float timeRotate;
         private Quaternion resultRotate;
+        [SerializeField] private Vector3 resultRotateEuler;
         private float state;
         private float currentTime;
 
@@ -18,7 +19,9 @@ namespace WildBall.Triggers
         {
             if(collision.gameObject.name == Inputs.GlobalStringVars.PLAYER_NAME && !rotate)
             {
+                resultRotateEuler = resultRotate.eulerAngles;
                 resultRotate = Quaternion.Euler(controlledPlane.rotation.eulerAngles.x, controlledPlane.rotation.eulerAngles.y + roatateAngle, controlledPlane.rotation.eulerAngles.z);
+                resultRotateEuler = resultRotate.eulerAngles;
                 rotate = true;
             }
         }
@@ -30,7 +33,7 @@ namespace WildBall.Triggers
                 Timer();
                 controlledPlane.rotation = Quaternion.Slerp(controlledPlane.rotation, resultRotate, state);
 
-                if(controlledPlane.rotation == resultRotate)
+                if(controlledPlane.rotation.eulerAngles == resultRotate.eulerAngles)
                 {
                     state = 0.0f;
                     currentTime = 0.0f;
@@ -41,7 +44,7 @@ namespace WildBall.Triggers
 
         private void Timer()
         {
-            if(currentTime < timeRotate)
+            if(currentTime <= timeRotate)
             {
                 currentTime += Time.deltaTime;
                 state = (currentTime - 0.0f) / (timeRotate - 0.0f) * (1.0f - 0.0f) + 0.0f;

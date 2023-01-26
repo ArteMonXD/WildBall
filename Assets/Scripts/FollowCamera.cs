@@ -6,6 +6,7 @@ namespace WildBall.Inputs
     public class FollowCamera : MonoBehaviour
     {
         [SerializeField] private Transform playerTransform;
+        [SerializeField] private PlayerInput playerInput;
         //private Vector3 offset;
         [SerializeField] private Dictionary<string, Vector3> offsets = new Dictionary<string, Vector3>();
         [SerializeField] private Dictionary<string, Quaternion> angles = new Dictionary<string, Quaternion>();
@@ -18,14 +19,16 @@ namespace WildBall.Inputs
         private void Start()
         {
             Vector3 offsetBase = transform.position - playerTransform.position;
+            playerInput = playerTransform.gameObject.GetComponent<PlayerInput>();
+            currentState = GlobalStringVars.STATES[0];
             offsets.Add(GlobalStringVars.STATES[0], offsetBase);
             offsets.Add(GlobalStringVars.STATES[1], new Vector3(offsetBase.z, offsetBase.y, offsetBase.x));
             offsets.Add(GlobalStringVars.STATES[2], new Vector3(offsetBase.x, offsetBase.y, (offsetBase.z * -1)));
             offsets.Add(GlobalStringVars.STATES[3], new Vector3((offsetBase.z * -1), offsetBase.y, offsetBase.x));
             angles.Add(GlobalStringVars.STATES[0], transform.rotation);
-            angles.Add(GlobalStringVars.STATES[1], Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z));
-            angles.Add(GlobalStringVars.STATES[2], Quaternion.Euler(transform.rotation.x, 180, transform.rotation.z));
-            angles.Add(GlobalStringVars.STATES[3], Quaternion.Euler(transform.rotation.x, -90, transform.rotation.z));
+            angles.Add(GlobalStringVars.STATES[1], Quaternion.Euler(transform.rotation.eulerAngles.x, 90, transform.rotation.eulerAngles.z));
+            angles.Add(GlobalStringVars.STATES[2], Quaternion.Euler(transform.rotation.eulerAngles.x, 180, transform.rotation.eulerAngles.z));
+            angles.Add(GlobalStringVars.STATES[3], Quaternion.Euler(transform.rotation.eulerAngles.x, -90, transform.rotation.eulerAngles.z));
         }
         private void FixedUpdate()
         {
@@ -33,12 +36,14 @@ namespace WildBall.Inputs
             Follow();
         }
 
-        public void SwitchState(string state)
+        public void SwitchState(int stateID)
         {
-            if (state != currentState)
+            if (GlobalStringVars.STATES[stateID] != currentState)
             {
                 swithState = true;
-                currentState = state;
+                currentState = GlobalStringVars.STATES[stateID];
+                playerInput.SwitchMovementState(GlobalStringVars.STATES[stateID]);
+                playerInput.GetPlayerMovement.Freeze(swithState);
             }
         }
         private void Follow()
@@ -49,20 +54,23 @@ namespace WildBall.Inputs
         {
             if (swithState)
             {
-                if (transform.position != offsets[currentState])
+                if (transform.position != playerTransform.position + offsets[currentState])
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, offsets[currentState], speedSwith * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, playerTransform.position + offsets[currentState], speedSwith * Time.deltaTime);
                 }
                 else
                 {
                     swithState = false;
+                    playerInput.GetPlayerMovement.Freeze(swithState);
                 }
+
                 if (transform.rotation != angles[currentState])
                 {
                     transform.rotation = Quaternion.Slerp(transform.rotation, angles[currentState], speedSwith);
                 }
             }
         }
+
 #if UNITY_EDITOR
         [Header("For Settings (Set Start Position)")]
         [SerializeField] private Vector3 positionRelativePlayer = new Vector3(0.0f, 1.429999f, -3.380001f);

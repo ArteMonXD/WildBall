@@ -11,9 +11,11 @@ namespace WildBall.Triggers
         [SerializeField] private Direction direction;
         [SerializeField] private ControlAxis controlAxis;
         private Transform player;
+        private Inputs.FollowCamera followCamera;
         private void Start()
         {
             player = FindObjectOfType<Inputs.PlayerInput>().transform;
+            followCamera = Camera.main.GetComponent<Inputs.FollowCamera>();
         }
         private void Update()
         {
@@ -27,16 +29,16 @@ namespace WildBall.Triggers
                 switch (direction)
                 {
                     case Direction.Back:
-                        playerInput.SwitchMovementState(Inputs.GlobalStringVars.STATES[0]);
+                        followCamera.SwitchState(0);
                         break;
                     case Direction.Left:
-                        playerInput.SwitchMovementState(Inputs.GlobalStringVars.STATES[1]);
+                        followCamera.SwitchState(1);
                         break;
                     case Direction.Front:
-                        playerInput.SwitchMovementState(Inputs.GlobalStringVars.STATES[2]);
+                        followCamera.SwitchState(2);
                         break;
                     case Direction.Right:
-                        playerInput.SwitchMovementState(Inputs.GlobalStringVars.STATES[3]);
+                        followCamera.SwitchState(3);
                         break;
                 }
             }

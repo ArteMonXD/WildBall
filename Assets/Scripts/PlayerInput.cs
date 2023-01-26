@@ -8,6 +8,10 @@ namespace WildBall.Inputs
     {
         private Vector3 movement;
         private PlayerMovement playerMovement;
+        public PlayerMovement GetPlayerMovement
+        {
+            get { return playerMovement; }
+        }
         [SerializeField] private int movementStateCurrent;
         [SerializeField] private Dictionary<string, int> states = new Dictionary<string, int>();
         private void Awake()

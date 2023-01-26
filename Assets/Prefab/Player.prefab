@@ -4795,7 +4795,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4855,6 +4854,7 @@ GameObject:
   - component: {fileID: 1496384150599056166}
   - component: {fileID: 6705259381190639251}
   - component: {fileID: 1069600513}
+  - component: {fileID: 1552932400}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4978,6 +4978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1ebb0767d37b74da60ce98670e1580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementStateCurrent: 0
 --- !u!114 &1069600513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4991,3 +4992,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPS: {fileID: 1141960568}
+--- !u!114 &1552932400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700162285100094394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d57a413de9463e42b63230989aa65ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: []
+  isBuff: 0

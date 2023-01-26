@@ -915,7 +915,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 45184532}
+  playerInput: {fileID: 0}
   degree: 0.095
+  currentState: 
+  swithState: 0
+  speedSwith: 0
   positionRelativePlayer: {x: 0, y: 1.429999, z: -3.380001}
   rotationRelativePlayer: {x: 21.16, y: 0, z: 0}
 --- !u!1001 &245600363
@@ -4912,6 +4916,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3530116904289335085, guid: 4e2aba01aef0bbf4588c0c1f6cbd95d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6898068231944280473, guid: 4e2aba01aef0bbf4588c0c1f6cbd95d1,
         type: 3}
       propertyPath: m_Pivot.x

@@ -8,7 +8,7 @@ namespace WildBall.TrapAndLet
     {
         [SerializeField] private GameObject parentGameObject;
         [SerializeField] private MeshRenderer mainPlanform;
-        [SerializeField, Range(1.0f, 10.0f)] private float timeLife;
+        [SerializeField, Range(0.0f, 10.0f)] private float timeLife;
         private float currentTime;
         private bool timerStart;
         private void OnCollisionEnter(Collision collision)
